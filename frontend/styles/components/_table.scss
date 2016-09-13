@@ -1,0 +1,119 @@
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.table {
+    width: 100%;
+    margin: 0;
+
+    th, td {
+        font-size: 1.4em;
+        padding: 8px 15px;
+    }
+
+    th {
+        color: $c-black;
+        font-weight: 700;
+        background-color: #ddd;
+        border-right: 1px solid $c-white;
+        border-bottom: 1px solid #ccc;
+    }
+
+    td {
+        border-bottom: 1px solid #ddd;
+        transition: background-color $a-time;
+    }
+
+    tr {
+        th, td {
+            &:first-child, &:last-child {
+                text-align: center;
+                padding-left: 1px;
+                padding-right: 1px;
+            }
+        }
+
+        &._active td {
+            background-color: $c-active;
+        }
+
+        &._failed td {
+            background-color: $c-disabled;
+
+            a {
+                color: #000;
+            }
+        }
+    }
+
+    &__update {
+        width: 18px;
+        height: 18px;
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        background-image: url(/images/refresh.svg);
+
+        &, &:after {
+            cursor: pointer;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: 18px 18px;
+        }
+
+        &:after {
+            content: "";
+            opacity: 0;
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 10;
+            transition: opacity $a-time;
+        }
+
+        &._active {
+            animation: spin 1s linear infinite;
+        }
+
+        &._success {
+            background-image: none;
+
+            &:after {
+                background-image: url(/images/success.svg);
+                opacity: 1;
+            }
+        }
+
+        &._failed {
+            background-image: none;
+
+            &:after {
+                background-image: url(/images/failed.svg);
+                opacity: 1;
+            }
+        }
+    }
+
+    &__link {
+        color: $c-blue;
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: middle;
+        text-decoration: none;
+        transition: color $a-time;
+        border-bottom: 1px solid $c-light-blue;
+
+        &:hover {
+            color: $c-dark-blue;
+        }
+    }
+
+    &__error {
+        color: $c-red;
+    }
+
+    &__success {
+        color: $c-green;
+    }
+}

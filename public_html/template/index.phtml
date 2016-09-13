@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/main.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/favicon/manifest.json">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/favicon/favicon.ico">
+    <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff"></head><body>
+    <title>Проверка сайтой</title>
+</head>
+<body>
+
+<section class="content">
+    
+    <div class="button-list">
+        <button class="button _green j-update-all j-change-button" disabled>Обновить</button>
+        <button class="button-link j-change-button" disabled>Удалить</button>
+    </div>
+
+    <?php if (!empty($sites)): ?>
+    <table class="table" id="table">
+        <colgroup>
+            <col width="18">
+            <col width="150">
+            <col width="80">
+            <col width="80">
+            <col width="80">
+            <col width="120">
+            <col width="18">
+        </colgroup>
+        <thead>
+            <tr>
+                <th><input type="checkbox" name="changeall" class="j-change-all"></th>
+                <th>Домен</th>
+                <th>Статус</th>
+                <th>Ip Адрес</th>
+                <th>До окончания</th>
+                <th>Обновление</th>
+                <th></th>
+            </tr>
+        </thead>
+        
+        <tbody>
+        <?php foreach($sites as $key => $site): ?>
+            <tr class="site-<?=$key;?>">
+                <td><input type="checkbox" name="site[<?=$key;?>]" class="j-change-item"></td>
+                <td><a href="http://<?=$site['url'];?>" class="table__link" target="_blank"><?=$site['url'];?></a></td>
+                <td><span class="status j-status"></span></td>
+                <td><?=$site['ip'];?></td>
+                <td></td>
+                <td></td>
+                <td><a href="/api/update?url=<?=$site['url'];?>" onclick="return false" class="table__update j-update"></a></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+
+    </table>
+    <?php endif; ?>
+
+</section>
+
+<script src="/js/vendor.min.js"></script>
+<script src="/js/app.min.js"></script>
+
+</body>
+</html>

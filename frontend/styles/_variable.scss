@@ -1,0 +1,49 @@
+// Animation
+$a-time:                        .3s;
+$a-micro-time:                  .15s;
+$a-long-time:                   .7s;
+
+// Fonts
+$font-base:                     10px;
+$font-family:                   Verdana, Arial, Helvetica, sans-serif;
+$font-arial:                    Arial, Helvetica, sans-serif;
+$font-forms:                    Arial, Helvetica, sans-serif;
+
+// Colors
+$c-select-color:                #f00;
+$c-select-background:           #000;
+
+$c-text-color:                  #121212;
+$c-body-background:             #fff !default;
+
+$c-placeholder-color:           #000;
+$c-placeholder-opacity:         .5;
+
+$c-sandwich-overlay:            #000;
+$c-sandwich-background:         #2b65b6;
+$c-sandwich-background-active:  #fff;
+
+$c-active:                      #eee;
+$c-white:                       #fff;
+$c-black:                       #000;
+$c-blue:                        #4169e1;
+$c-light-blue:                  lighten($c-blue, 25%);
+$c-dark-blue:                   darken($c-blue, 15%);
+
+$c-disabled:                    #ffe2df;
+$c-red:                         #EF4836;
+$c-green:                       #28A228;
+
+$c-border-color:                #eee;
+
+// SIZE
+$layout-width:                  1260px;
+$layout-margin:                 10px;
+
+$header-height:                 159px;
+
+$footer-margin:                 20px;
+$footer-height:                 100px;
+
+$sidebar-width:                 200px;
+$sidebar-margin:                20px;
